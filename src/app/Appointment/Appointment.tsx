@@ -133,15 +133,17 @@ export default function BookAppointmentPage() {
   const nextStep = async () => {
     // Validate step 1 - Personal Information
     if (step === 1) {
-      if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
-        alert('Please fill in all required personal information fields (Name, Email, Phone)');
+      if (!formData.name.trim() || !formData.phone.trim()) {
+        alert('Please fill in all required personal information fields (Name, Phone)');
         return;
       }
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        alert('Please enter a valid email address');
-        return;
+      // Email validation (only if email is provided)
+      if (formData.email.trim()) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+          alert('Please enter a valid email address');
+          return;
+        }
       }
       // Phone validation (basic)
       const phoneRegex = /^[0-9\-\+\(\)\s]{10,}$/;
@@ -294,14 +296,13 @@ export default function BookAppointmentPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email Address *</label>
+                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email Address</label>
                     <input
                       type="email"
                       id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors duration-300"
                       placeholder="john@example.com"
                     />

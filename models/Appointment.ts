@@ -23,9 +23,9 @@ const AppointmentSchema: Schema = new Schema(
     },
     email: {
       type: String,
-      required: [true, 'Email is required'],
       trim: true,
       lowercase: true,
+      default: '',
     },
     phone: {
       type: String,
