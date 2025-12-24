@@ -213,10 +213,10 @@ const Footer = () => {
                     placeholder="Your email address"
                     required
                     disabled={isSubscribing}
-                    className="px-4 py-3 pr-10 rounded-l-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full lg:w-80 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-4 py-3 rounded-lg sm:rounded-r-none sm:rounded-l-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full lg:w-80 disabled:opacity-50 disabled:cursor-not-allowed bg-emerald-800/50 placeholder-emerald-200/70 border border-emerald-700"
                   />
                   <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
@@ -224,7 +224,7 @@ const Footer = () => {
                 <button
                   type="submit"
                   disabled={isSubscribing}
-                  className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-medium px-6 py-3 rounded-r-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                  className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-medium px-6 py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap shadow-lg"
                 >
                   {isSubscribing ? 'Subscribing...' : 'Subscribe'}
                 </button>

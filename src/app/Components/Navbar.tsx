@@ -8,11 +8,11 @@ import logo from '../../../public/logo.jpeg';
 
 // Logo component that can be reused in both desktop and mobile views
 const Logo = ({ size = 24, className = "" }) => (
-  <Image 
-    src={logo} 
-    alt="Traditional Siddha Ayurveda Clinic Logo" 
-    width={size} 
-    height={size} 
+  <Image
+    src={logo}
+    alt="Traditional Siddha Ayurveda Clinic Logo"
+    width={size}
+    height={size}
     className={className}
   />
 );
@@ -63,7 +63,7 @@ const Navbar = () => {
   // Handle tab key in mobile menu for focus trapping
   const handleTabKey = useCallback((event: KeyboardEvent) => {
     if (!isMenuOpen) return;
-    
+
     if (event.key === 'Tab') {
       if (event.shiftKey) {
         if (document.activeElement === firstMenuItemRef.current) {
@@ -99,7 +99,7 @@ const Navbar = () => {
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleEscapeKey);
     document.addEventListener('keydown', handleTabKey);
-    
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscapeKey);
@@ -123,28 +123,27 @@ const Navbar = () => {
   return (
     <>
       {/* Skip to content link for accessibility */}
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-emerald-600 text-white p-2 rounded-md z-50"
       >
         Skip to main content
       </a>
-      
+
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden"
           onClick={() => setIsMenuOpen(false)}
           aria-hidden="true"
         />
       )}
-      
-      <nav 
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-lg py-2 md:py-3' 
+
+      <nav
+        className={`fixed w-full z-50 transition-all duration-300 ${isScrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-lg py-2 md:py-3'
             : 'bg-transparent py-2 md:py-4'
-        }`}
+          }`}
         aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
@@ -170,11 +169,10 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`relative px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm lg:text-base ${
-                      pathname === link.href
+                    className={`relative px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm lg:text-base ${pathname === link.href
                         ? 'bg-white text-emerald-600 shadow-sm'
                         : 'text-gray-700 hover:bg-white/50'
-                    }`}
+                      }`}
                     aria-current={pathname === link.href ? 'page' : undefined}
                   >
                     {link.name}
@@ -222,9 +220,8 @@ const Navbar = () => {
         <div
           ref={menuRef}
           id="mobile-menu"
-          className={`fixed top-0 left-0 w-full h-full bg-gradient-to-b from-white to-emerald-50 z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
-            isMenuOpen ? 'translate-x-0' : '-translate-x-full'
-          }`}
+          className={`fixed top-0 left-0 w-full h-full bg-gradient-to-b from-white to-emerald-50 z-50 transform transition-transform duration-300 ease-in-out md:hidden ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+            }`}
           style={{ height: '100vh' }}
         >
           <div className="flex flex-col h-full">
@@ -247,7 +244,7 @@ const Navbar = () => {
                 </svg>
               </button>
             </div>
-            
+
             {/* Mobile Menu Content */}
             <div className="flex-1 overflow-y-auto py-4 sm:py-5">
               <div className="px-4 sm:px-5">
@@ -260,11 +257,10 @@ const Navbar = () => {
                         key={link.name}
                         href={link.href}
                         ref={index === 0 ? firstMenuItemRef : index === navLinks.length - 1 ? lastMenuItemRef : undefined}
-                        className={`flex flex-col items-center justify-center p-4 sm:p-5 rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base transition-all duration-300 transform hover:scale-105 ${
-                          pathname === link.href
+                        className={`flex flex-col items-center justify-center p-4 sm:p-5 rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base transition-all duration-300 transform hover:scale-105 ${pathname === link.href
                             ? 'bg-gradient-to-br from-emerald-100 to-teal-100 text-emerald-700 border border-emerald-300 shadow-sm'
                             : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-100'
-                        }`}
+                          }`}
                         aria-current={pathname === link.href ? 'page' : undefined}
                         onClick={() => setIsMenuOpen(false)}
                       >
@@ -274,7 +270,7 @@ const Navbar = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 {/* Responsive Appointment Button */}
                 <div className="mb-6 sm:mb-7">
                   <Link
@@ -288,7 +284,7 @@ const Navbar = () => {
                     Book Appointment
                   </Link>
                 </div>
-                
+
                 {/* Responsive Contact Information */}
                 {/* <div className="mb-6 sm:mb-7">
                   <h2 className="text-lg sm:text-xl font-semibold text-gray-700 mb-3 sm:mb-4">Get in Touch</h2>
@@ -323,24 +319,19 @@ const Navbar = () => {
                     </a>
                   </div>
                 </div> */}
-                
-                Responsive Opening Hours
+
                 <div className="mb-6 sm:mb-7">
                   <h2 className="text-lg sm:text-xl font-semibold text-gray-700 mb-3 sm:mb-4">Opening Hours</h2>
                   <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-sm">
-                    <div className="flex justify-between items-center mb-3 sm:mb-4 pb-3 sm:pb-4 border-b border-gray-100">
+                    <div className="flex justify-between items-center">
                       <span className="text-gray-600 text-sm sm:text-base">Monday - Sunday</span>
                       <span className="font-medium text-gray-800 text-base sm:text-lg">9:00 AM - 10:00 PM</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 text-sm sm:text-base">Saturday</span>
-                      <span className="font-medium text-gray-800 text-base sm:text-lg">10:00 AM - 4:00 PM</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             {/* Responsive Mobile Menu Footer */}
             <div className="p-4 sm:p-5 bg-gradient-to-r from-emerald-50 to-teal-50 border-t border-emerald-100">
               <div className="flex justify-center space-x-6 sm:space-x-8 mb-4 sm:mb-5">

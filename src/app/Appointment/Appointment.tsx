@@ -245,8 +245,8 @@ export default function BookAppointmentPage() {
               {[1, 2, 3].map((stepNumber) => (
                 <div key={stepNumber} className="flex items-center">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${step >= stepNumber
-                      ? 'bg-emerald-500 text-white'
-                      : 'bg-gray-200 text-gray-600'
+                    ? 'bg-emerald-500 text-white'
+                    : 'bg-gray-200 text-gray-600'
                     }`}>
                     {stepNumber}
                   </div>
@@ -357,8 +357,8 @@ export default function BookAppointmentPage() {
                       <label
                         key={doctor.id}
                         className={`block p-4 border-2 rounded-lg cursor-pointer transition-all duration-300 ${formData.doctor === doctor.id
-                            ? 'border-emerald-500 bg-emerald-50'
-                            : 'border-gray-200 hover:border-emerald-300'
+                          ? 'border-emerald-500 bg-emerald-50'
+                          : 'border-gray-200 hover:border-emerald-300'
                           }`}
                       >
                         <div className="flex items-start">
@@ -391,8 +391,8 @@ export default function BookAppointmentPage() {
                       <label
                         key={service.id}
                         className={`block p-4 border-2 rounded-lg cursor-pointer transition-all duration-300 ${formData.service === service.id
-                            ? 'border-emerald-500 bg-emerald-50'
-                            : 'border-gray-200 hover:border-emerald-300'
+                          ? 'border-emerald-500 bg-emerald-50'
+                          : 'border-gray-200 hover:border-emerald-300'
                           }`}
                       >
                         <div className="flex items-center">
@@ -423,8 +423,8 @@ export default function BookAppointmentPage() {
                         <label
                           key={treatment.id}
                           className={`block p-4 border-2 rounded-lg cursor-pointer transition-all duration-300 ${formData.treatment === treatment.id
-                              ? 'border-emerald-500 bg-emerald-50'
-                              : 'border-gray-200 hover:border-emerald-300'
+                            ? 'border-emerald-500 bg-emerald-50'
+                            : 'border-gray-200 hover:border-emerald-300'
                             }`}
                         >
                           <div className="flex items-center">
@@ -463,13 +463,17 @@ export default function BookAppointmentPage() {
                 {/* Time Selection */}
                 {selectedDate && (
                   <div>
-                    <label className="block text-gray-700 font-medium mb-4">Preferred Time *</label>
+                    <label className="block text-gray-700 font-medium mb-4">
+                      Preferred Time * <span className="text-sm text-gray-500 font-normal">(9:00 AM - 10:00 PM)</span>
+                    </label>
                     <input
                       type="time"
                       name="time"
                       value={formData.time}
                       onChange={handleChange}
                       required
+                      min="09:00"
+                      max="22:00"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors duration-300"
                     />
                   </div>
@@ -488,8 +492,8 @@ export default function BookAppointmentPage() {
                   onClick={nextStep}
                   disabled={!formData.doctor || !formData.service || !formData.date || !formData.time || isSubmitting}
                   className={`px-8 py-3 font-medium rounded-lg transition-all duration-300 shadow-md ${formData.doctor && formData.service && formData.date && formData.time && !isSubmitting
-                      ? 'bg-linear-to-r from-emerald-500 to-teal-600 text-white hover:from-emerald-600 hover:to-teal-700 hover:shadow-lg'
-                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    ? 'bg-linear-to-r from-emerald-500 to-teal-600 text-white hover:from-emerald-600 hover:to-teal-700 hover:shadow-lg'
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     }`}
                 >
                   {isSubmitting ? 'Booking Appointment...' : 'Review Appointment'}
